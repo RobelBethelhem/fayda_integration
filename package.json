@@ -1,0 +1,31 @@
+{
+  "name": "fayda-demo",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "dev": "ts-node src/server.ts",
+    "test:otp": "npx ts-node test_fayda/1_test_request_otp.ts",
+    "test:auth": "npx ts-node test_fayda/2_test_authenticate.ts",
+    "test:ekyc": "npx ts-node test_fayda/3_test_ekyc.ts",
+    "test:full": "npx ts-node test_fayda/full_flow_test.ts",
+    "test:ekyc-flow": "npx ts-node test_fayda/4_test_ekyc_flow.ts",
+    "prod:otp":       "npx ts-node Production_FAYDA/1_test_request_otp.ts",
+    "prod:auth":      "npx ts-node Production_FAYDA/2_test_authenticate.ts",
+    "prod:ekyc":      "npx ts-node Production_FAYDA/3_test_ekyc_flow.ts",
+    "prod:full":      "npx ts-node Production_FAYDA/full_flow_test.ts"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "fayda-auth-client": "^1.0.5"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.17",
+    "@types/node": "^20.5.6",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.1.6"
+  }
+}

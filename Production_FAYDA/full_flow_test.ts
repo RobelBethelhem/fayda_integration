@@ -36,9 +36,10 @@ const question = (q: string) => new Promise<string>(resolve => rl.question(q, re
 
   try {
     const otpRes = await client.requestOtp(otpRequest);
-    authTxnId = otpRes.transactionID;
+    console.log('Raw OTP Response:', JSON.stringify(otpRes, null, 2));
+    authTxnId = otpRes.transactionID ?? otpRes['transactionId'] ?? otpRes['transaction_id'];
     console.log('✓ OTP sent. Transaction ID:', authTxnId);
-    console.log('  Masked mobile:', otpRes.response?.maskedMobile);
+    console.log('  Masked mobile:', otpRes.response?.maskedMobile ?? otpRes['maskedMobile']);
   } catch (err: any) {
     console.error('✗ OTP failed:', err.message);
     rl.close();
@@ -80,7 +81,8 @@ const question = (q: string) => new Promise<string>(resolve => rl.question(q, re
 
   try {
     const ekycOtpRes = await client.requestOtp(otpRequest);
-    ekycTxnId = ekycOtpRes.transactionID;
+    console.log('Raw eKYC OTP Response:', JSON.stringify(ekycOtpRes, null, 2));
+    ekycTxnId = ekycOtpRes.transactionID ?? ekycOtpRes['transactionId'] ?? ekycOtpRes['transaction_id'];
     console.log('✓ OTP sent. Transaction ID:', ekycTxnId);
   } catch (err: any) {
     console.error('✗ eKYC OTP failed:', err.message);

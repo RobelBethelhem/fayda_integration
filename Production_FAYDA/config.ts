@@ -8,7 +8,7 @@ export const config = {
   'ida.reference.id': 'PARTNER',
   'p12.path': './Production_FAYDA/keys',
   'p12.password': 'zemenqwertyXSW@',
-  'ida.ssl.verify': 'true',
+  'ida.ssl.verify': 'false',
   'ida.otp.url': '${fayda.base.url}/idauthentication/v1/otp/${mispLicenseKey}/${partnerId}/${partnerApiKey}',
   'ida.auth.url': '${fayda.base.url}/idauthentication/v1/auth/${mispLicenseKey}/${partnerId}/${partnerApiKey}',
   'ida.ekyc.url': '${fayda.base.url}/idauthentication/v1/kyc/${mispLicenseKey}/${partnerId}/${partnerApiKey}',
